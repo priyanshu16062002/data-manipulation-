@@ -1,0 +1,18 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+# Load the dataset
+df = pd.read_csv('01.Data Cleaning and Preprocessing.csv')
+print(df.head)
+print(df.info())
+print(df.describe())
+print(df.isna().sum())
+df_new=df.dropna()
+df_new=df.drop_duplicates()
+print(df.columns)
+sns.boxplot(x=df['SulphidityL-4 '])
+sns.histplot(data=df, x='SulphidityL-4 ', kde=True)
+plt.title('SulphidityL-4 ')
+plt.show()
+df.to_csv('cleaned_dataset.csv', index=False)
